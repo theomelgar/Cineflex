@@ -2,31 +2,37 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import gif from "../assets/Loading_icon.gif"
 import styled from 'styled-components';
-export default function Catalogo(){
-    
+import { Link, useParams } from 'react-router-dom';
+export default function Catalogo() {
+
     const [filmes, setFilmes] = useState(undefined);
 
-	useEffect(() => {
-		const requisicao = axios.get("https://mock-api.driven.com.br/api/v8/cineflex/movies");
-        
-		requisicao.then(resposta => {
-			setFilmes(resposta.data);
-            
-		});
-	}, []);
-    console.log(filmes)
-	if(filmes === undefined) {
-		return <img src={gif} alt='loading'/>;
-	}
+    useEffect(() => {
+        const requisicao = axios.get("https://mock-api.driven.com.br/api/v8/cineflex/movies");
 
-	return (
+        requisicao.then(resposta => {
+            setFilmes(resposta.data);
+
+        });
+    }, []);
+
+    if (filmes === undefined) {
+        return <img src={gif} alt='loading' />;
+    }
+    
+    return (
         <Catalogue>
-        <p>Selecione o filme</p>
-		<ul>
-			{filmes.map(filme => <li><img src={filme.posterURL} alt="filme"/></li>)}
-		</ul>
+            <p>Selecione o filme</p>
+            <ul>
+                {filmes.map(filme =>
+                    <Link to={`/sessoes/${filme.id}`}>
+                        <li>
+                            <img src={filme.posterURL} alt="filme" />
+                        </li>
+                    </Link>)}
+            </ul>
         </Catalogue>
-	);
+    );
 }
 
 const Catalogue = styled.div`

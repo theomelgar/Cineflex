@@ -1,13 +1,14 @@
 import GLobalStyle from "./styles/GlobalStyle.js"
-import Cinemain from "./components/Cinemain"
 import styled from "styled-components";
+import Cinemain from "./components/Cinemain.js";
+
 export default function App() {
   return (
-    <Conteiner>
-    <GLobalStyle/>
-    <Cinemain/>
-    </Conteiner>
-  );
+      <Conteiner>
+        <GLobalStyle />
+        <Cinemain/>
+      </Conteiner>
+  )
 }
 
 const Conteiner = styled.div`

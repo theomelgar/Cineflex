@@ -1,18 +1,32 @@
 import Catalogo from "./Catalogo"
+import Sessions from "./Sessions"
+import Room from "./Room"
+import Final from "./Final"
 import styled from "styled-components"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
+
 export default function Cinemain() {
     return (
-        <BrowserRouter>
-            <Logo>
-                CINEFLEX
-            </Logo>
-            <Routes>
-                <Route path="/" element={<Catalogo />} />
-            </Routes>
-        </BrowserRouter>
+        <Conteiner>
+            <BrowserRouter>
+                <Link to={'/'}>
+                    <Logo>
+                        CINEFLEX
+                    </Logo>
+                </Link>
+                <Routes>
+                    <Route path="/" element={<Catalogo />} />
+                    <Route path="/sessoes/:idFilme" element={<Sessions />} />
+                    <Route path="/assentos/:idSessao" element={<Room />} />
+                    <Route path="/sucesso" element={<Final/>} />
+                </Routes>
+            </BrowserRouter>
+        </Conteiner>
     )
 }
+const Conteiner = styled.div`
+    width: 375px;
+`
 const Logo = styled.div`
 width: 375px;
 height: 67px;
