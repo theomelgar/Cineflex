@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const Footer = styled.div`
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -10,7 +12,6 @@ const Footer = styled.div`
     display: flex;
     align-items: center;
     color: #293845;
-    width: 374px;
     height: 117px;
     background: #DFE6ED;
     border: 1px solid #9EADBA;

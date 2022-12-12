@@ -30,11 +30,11 @@ export default function Cinemain() {
     )
 }
 const Conteiner = styled.div`
-    width: 375px;
     position: relative;
+    width: 100%;
 `
 const Logo = styled.div`
-    width: 375px;
+    width: 100%;
     height: 67px;
     background: #C3CFD9;
     font-family: 'Roboto';

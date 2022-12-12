@@ -7,6 +7,7 @@ import Footer from "./Footer"
 import Legenda from './Legenda';
 import "../styles/style.css"
 import Voltar from "./Voltar"
+import Loading from './Loading';
 
 
 export default function Room({ setReserva }) {
@@ -27,7 +28,7 @@ export default function Room({ setReserva }) {
         requisicao.catch((err) => alert(err.response.data.message));
     }, []);
     if (assentos === undefined) {
-        return <img src={gif} alt='loading' />;
+        return <Loading/>;
     }
     function enviar(event) {
 
@@ -135,6 +136,8 @@ const Seats = styled.div`
     justify-content: center;
     align-items: center;
     gap: 30px;
+    margin-bottom:150px;
+    width: 100%;
     ul{
         width: 375px;
         height: 200px;
@@ -182,7 +185,7 @@ const Seat = styled.div`
 `
 const Formulario = styled.div`
     form{
-        width: 375px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         text-align: flex-start;

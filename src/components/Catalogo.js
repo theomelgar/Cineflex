@@ -3,6 +3,7 @@ import axios from 'axios';
 import gif from "../assets/Loading_icon.gif"
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Loading from './Loading';
 export default function Catalogo() {
 
     const [filmes, setFilmes] = useState(undefined);
@@ -17,7 +18,7 @@ export default function Catalogo() {
     }, []);
 
     if (filmes === undefined) {
-        return <img src={gif} alt='loading' />;
+        return <Loading/>
     }
     return (
         <Catalogue>
@@ -35,9 +36,7 @@ export default function Catalogo() {
 }
 
 const Catalogue = styled.div`
-    
     p{
-        width: 374px;
         height: 110px;
         font-family: 'Roboto';
         font-style: normal;
@@ -50,11 +49,11 @@ const Catalogue = styled.div`
         text-align: center;
         letter-spacing: 0.04em;
         color: #293845;
-
-
+        margin: 0 auto ;
     }
     ul{ 
-        width: 375px;
+
+        width: 0 auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;

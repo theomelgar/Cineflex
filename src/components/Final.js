@@ -50,11 +50,13 @@ export default function Final({ reserva }) {
     )
 }
 const Sucesso = styled.div`
-    width: 375px;
+    margin: 0 auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom:150px;
 `
 const Titulo = styled.div`
     width: 374px;

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
 import Footer from './Footer';
 import Voltar from "./Voltar"
+import Loading from './Loading';
 
 
 export default function Sessions() {
@@ -20,7 +21,7 @@ export default function Sessions() {
     }, []);
 
     if (sessao === undefined) {
-        return <img src={gif} alt='loading' />;
+        return <Loading />;
     }
     return (
         <Horarios>
@@ -54,7 +55,7 @@ export default function Sessions() {
 }
 const Horarios = styled.div`
     gap: 10px;
-    width: 375px;
+    width: 100%;
     height: 100%;
     font-family: 'Roboto';
     font-style: normal;
@@ -66,10 +67,11 @@ const Horarios = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     letter-spacing: 0.02em;
-
     color: #293845;
+    margin-bottom:150px;
     p{
-        width: 374px;
+        margin: 0 auto;
+        width: 100%;
         height: 110px;
         font-family: 'Roboto';
         font-style: normal;
@@ -83,14 +85,18 @@ const Horarios = styled.div`
         letter-spacing: 0.04em;
         color: #293845;
     }
-    img{
-        width: 375px;
+    ul{
+        margin: 0 auto;
     }
 `
 const Opcoes = styled.div`
-    display: flex   ;
+    display: flex;
     gap: 10px;
+    margin: 0 auto;
+    width: 100%;
     button{
+        width: 0 auto;
+        width: 100%;
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
