@@ -3,22 +3,32 @@ import Sessions from "./Sessions"
 import Room from "./Room"
 import Final from "./Final"
 import styled from "styled-components"
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Link, Route, Routes, useNavigate } from "react-router-dom"
+import { useState } from "react"
+
 
 export default function Cinemain() {
+    const navigate = useNavigate()
+    const [reserva, setReserva] = useState(undefined);
+    
+    function volta(){
+        navigate(-1)
+    }
     return (
         <Conteiner>
             <BrowserRouter>
+            <Voltar onClick={volta}>Voltar</Voltar>
                 <Link to={'/'}>
                     <Logo>
                         CINEFLEX
                     </Logo>
                 </Link>
+                
                 <Routes>
                     <Route path="/" element={<Catalogo />} />
                     <Route path="/sessoes/:idFilme" element={<Sessions />} />
-                    <Route path="/assentos/:idSessao" element={<Room />} />
-                    <Route path="/sucesso" element={<Final/>} />
+                    <Route path="/assentos/:idSessao" element={<Room setReserva={setReserva} />} />
+                    <Route path="/sucesso" element={<Final reserva={reserva}/>} />
                 </Routes>
             </BrowserRouter>
         </Conteiner>
@@ -26,27 +36,26 @@ export default function Cinemain() {
 }
 const Conteiner = styled.div`
     width: 375px;
+    position: relative;
 `
 const Logo = styled.div`
-width: 375px;
-height: 67px;
-left: 0px;
-top: 0px;
-
-background: #C3CFD9;
-left: 0px;
-top: 0px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 34px;
-line-height: 40px;
-display: flex;
-align-items: center;
-text-align: center;
-justify-content: center;
-color: #E8833A;
-
-
+    width: 375px;
+    height: 67px;
+    background: #C3CFD9;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #E8833A;
+`
+const Voltar = styled.button`
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    width: 100px;
 `

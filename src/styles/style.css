@@ -1,0 +1,32 @@
+.seat {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .selected {
+    width: 25px;
+    height: 25px;
+    background: #1AAE9E;
+    border: 1px solid #0E7D71;
+    border-radius: 17px;
+  }
+  .true {
+    width: 24px;
+    height: 24px;
+    background: #C3CFD9;
+    border: 1px solid #7B8B99;
+    border-radius: 17px;
+  }
+  
+  .false {
+    width: 24px;
+    height: 24px;
+    background: #FBE192;
+    border: 1px solid #F7C52B;
+    border-radius: 17px;
+  }

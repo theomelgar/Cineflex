@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import gif from "../assets/Loading_icon.gif"
 import styled from 'styled-components';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 export default function Catalogo() {
 
     const [filmes, setFilmes] = useState(undefined);
@@ -19,7 +19,6 @@ export default function Catalogo() {
     if (filmes === undefined) {
         return <img src={gif} alt='loading' />;
     }
-    
     return (
         <Catalogue>
             <p>Selecione o filme</p>

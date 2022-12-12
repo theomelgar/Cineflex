@@ -20,7 +20,7 @@ export default function Sessions() {
     if (sessao === undefined) {
         return <img src={gif} alt='loading' />;
     }
-    console.log(sessao)
+    console.log(sessao.days)
     return (
         <Horarios>
             <p>Selecione o horário</p>
@@ -30,7 +30,7 @@ export default function Sessions() {
                         {s.weekday} - {s.date}
                         <Opcoes>
                             {s.showtimes.map(horario =>
-                                <Link to={`/assentos/${sessao.id}`}>
+                                <Link to={`/assentos/${horario.id}`}>
                                     <button>{horario.name}</button>
                                 </Link>)}
                         </Opcoes>

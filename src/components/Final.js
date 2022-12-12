@@ -1,8 +1,12 @@
 import styled from "styled-components"
-import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-export default function Final() {
-    const {assentos.movie.title} = useParams()
+export default function Final({ reserva }) {
+    const navigate = useNavigate()
+
+    function home() {
+        navigate("/");
+      }
     return (
         <Sucesso>
             <Titulo>
@@ -10,41 +14,42 @@ export default function Final() {
             </Titulo>
             <Informacoes>
                 <Informacao>
-                Filme e sessão
-                <p>
-                Enola Holmes
-                </p>
-                <p>
-                24/06/2021 15:00
-                </p>
+                    Filme e sessão
+                    <p>
+                        {reserva.assentos.movie.title}
+                    </p>
+                    <p>
+                        {reserva.assentos.day.date} {reserva.assentos.name}
+                    </p>
                 </Informacao>
                 <Informacao>
-                Ingressos
-                <p>
-                Enola Holmes
-                </p>
-                <p>
-                24/06/2021 15:00
-                </p>   
+                    Ingressos
+                    {reserva.ids.map((seatId) => {
+                        const [seat] = reserva.assentos.seats.filter(
+                            (s) => s.id === seatId
+                        );
+                        console.log(seat);
+                        return <p key={seat}>assento {seat.name}</p>;
+                    })}
                 </Informacao>
                 <Informacao>
-                Comprador
-                <p>
-                Enola Holmes
-                </p>
-                <p>
-                24/06/2021 15:00
-                </p>
+                    Comprador
+                    <p>
+                        {reserva.name}
+                    </p>
+                    <p>
+                        {reserva.cpf}
+                    </p>
                 </Informacao>
             </Informacoes>
-
-            <Home>
-            Voltar pra Home
+            <Home onClick={home}>
+                Voltar pra Home
             </Home>
+
         </Sucesso>
     )
 }
-const Sucesso=styled.div`
+const Sucesso = styled.div`
     width: 375px;
     display: flex;
     flex-direction: column;
