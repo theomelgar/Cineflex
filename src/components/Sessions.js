@@ -4,6 +4,8 @@ import gif from "../assets/Loading_icon.gif"
 import styled from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
 import Footer from './Footer';
+import Voltar from "./Voltar"
+
 
 export default function Sessions() {
     const [sessao, setSessao] = useState(undefined);
@@ -23,22 +25,23 @@ export default function Sessions() {
     console.log(sessao.days)
     return (
         <Horarios>
+            <Voltar/>
             <p>Selecione o horário</p>
             <ul>
                 {sessao.days.map(s =>
-                    <li>
+                    <li data-test="movie-day">
                         {s.weekday} - {s.date}
                         <Opcoes>
                             {s.showtimes.map(horario =>
                                 <Link to={`/assentos/${horario.id}`}>
-                                    <button>{horario.name}</button>
+                                    <button data-test="showtime">{horario.name}</button>
                                 </Link>)}
                         </Opcoes>
                     </li>
                 )}
             
             </ul>
-            <Footer>
+            <Footer data-test="footer">
                 <Foto>
                     <img src={sessao.posterURL}/>
                 </Foto>

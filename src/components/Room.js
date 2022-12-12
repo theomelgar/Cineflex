@@ -6,6 +6,8 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import Footer from "./Footer"
 import Legenda from './Legenda';
 import "../styles/style.css"
+import Voltar from "./Voltar"
+
 
 export default function Room({ setReserva }) {
     const [assentos, setAssentos] = useState(undefined);
@@ -68,12 +70,13 @@ export default function Room({ setReserva }) {
 
     return (
         <Seats>
+            <Voltar/>
             <Texto>Selecione o(s) assento(s)</Texto>
             <ul>
                 {assentos.seats.map(seat =>
                     <Seat >
                         {!seat.selected ? (
-                            <div className={`seat ${seat.isAvailable}`}onClick={() => handleSeat(seat)}>
+                            <div className={`seat ${seat.isAvailable}`} data-test="seat" onClick={() => handleSeat(seat)}>
                                 {Number(seat.name) < 10 ?
                                     (`0 ${seat.name}`)
                                     : (seat.name)
@@ -81,7 +84,7 @@ export default function Room({ setReserva }) {
 
                             </div>
                         ) : (
-                            <div className={`seat selected`}onClick={() => handleSeat(seat)}>
+                            <div className={`seat selected`} data-test="seat" onClick={() => handleSeat(seat)}>
                                 {Number(seat.name) < 10 ?
                                     (`0 ${seat.name}`)
                                     : (seat.name)
@@ -97,23 +100,23 @@ export default function Room({ setReserva }) {
                 <form onSubmit={enviar}>
                     <Nome>
                         <label for="nome">Nome do comprador:</label>
-                        <input id="nome" type="text" placeholder="Digite seu nome..."
+                        <input id="nome" data-test="client-name" type="text" placeholder="Digite seu nome..."
                             value={name} onChange={e => setName(e.target.value)} />
                     </Nome>
                     <Cpf>
                         <label for="cpf">CPF do comprador:</label>
-                        <input id="cpf" type="text" placeholder="Digite seu CPF..."
+                        <input id="cpf" type="text" data-test="client-cpf" placeholder="Digite seu CPF..."
                             value={cpf} onChange={e => setCpf(e.target.value)} />
                     </Cpf>
 
-                    <Reservar type='submit'>
+                    <Reservar data-test="book-seat-btn" type='submit'>
                         Reservar assento(s)
                     </Reservar>
 
 
                 </form>
             </Formulario>
-            <Footer>
+            <Footer data-test="footer">
                 <Foto>
                     <img src={assentos.movie.posterURL} />
                 </Foto>

@@ -25,7 +25,7 @@ export default function Catalogo() {
             <ul>
                 {filmes.map(filme =>
                     <Link to={`/sessoes/${filme.id}`}>
-                        <li>
+                        <li data-test="movie">
                             <img src={filme.posterURL} alt="filme" />
                         </li>
                     </Link>)}

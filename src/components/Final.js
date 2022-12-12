@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom"
+import Voltar from "./Voltar"
+
 
 export default function Final({ reserva }) {
     const navigate = useNavigate()
@@ -9,11 +11,12 @@ export default function Final({ reserva }) {
       }
     return (
         <Sucesso>
+            <Voltar/>
             <Titulo>
                 Pedido feito com sucesso!
             </Titulo>
             <Informacoes>
-                <Informacao>
+                <Informacao data-test="movie-info">
                     Filme e sessão
                     <p>
                         {reserva.assentos.movie.title}
@@ -22,7 +25,7 @@ export default function Final({ reserva }) {
                         {reserva.assentos.day.date} {reserva.assentos.name}
                     </p>
                 </Informacao>
-                <Informacao>
+                <Informacao data-test="seats-info">
                     Ingressos
                     {reserva.ids.map((seatId) => {
                         const [seat] = reserva.assentos.seats.filter(
@@ -32,7 +35,7 @@ export default function Final({ reserva }) {
                         return <p key={seat}>assento {seat.name}</p>;
                     })}
                 </Informacao>
-                <Informacao>
+                <Informacao data-test="client-info">
                     Comprador
                     <p>
                         {reserva.name}
@@ -42,7 +45,7 @@ export default function Final({ reserva }) {
                     </p>
                 </Informacao>
             </Informacoes>
-            <Home onClick={home}>
+            <Home data-test="go-home-btn" onClick={home}>
                 Voltar pra Home
             </Home>
 
