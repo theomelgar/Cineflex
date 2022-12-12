@@ -1,7 +1,5 @@
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom"
-import Voltar from "./Voltar"
-
 
 export default function Final({ reserva }) {
     const navigate = useNavigate()
@@ -11,7 +9,6 @@ export default function Final({ reserva }) {
       }
     return (
         <Sucesso>
-            {/* <Voltar/> */}
             <Titulo>
                 Pedido feito com sucesso!
             </Titulo>
@@ -31,6 +28,7 @@ export default function Final({ reserva }) {
                         const [seat] = reserva.assentos.seats.filter(
                             (s) => s.id === seatId
                         );
+
                         return <p key={seat}>assento {seat.name}</p>;
                     })}
                 </Informacao>
