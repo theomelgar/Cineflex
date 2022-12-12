@@ -26,7 +26,6 @@ export default function Room({ setReserva }) {
         });
         requisicao.catch((err) => alert(err.response.data.message));
     }, []);
-    console.log(assentos)
     if (assentos === undefined) {
         return <img src={gif} alt='loading' />;
     }
@@ -36,8 +35,8 @@ export default function Room({ setReserva }) {
 
         const reserva = {
             ids: selectedSeats.map((s)=> s.id),
-            name: name.map((n)=>n.name),
-            cpf: cpf.map((c)=>c.cpf),
+            name: name,
+            cpf: cpf,
         };
 
         setReserva({ ...reserva, assentos: assentos });
