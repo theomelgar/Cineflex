@@ -13,9 +13,10 @@ export default function Room({ setReserva }) {
     const [assentos, setAssentos] = useState(undefined);
     const { idSessao } = useParams();
     const [selectedSeats, setSelectedSeats] = useState([]);
-    const [name, setName] = useState("");
-    const [cpf, setCpf] = useState("");
+    const [name, setName] = useState([]);
+    const [cpf, setCpf] = useState([]);
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         const requisicao = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSessao}/seats`);
@@ -35,8 +36,8 @@ export default function Room({ setReserva }) {
 
         const reserva = {
             ids: selectedSeats.map((s)=> s.id),
-            name: name,
-            cpf: cpf,
+            name: name.map((n)=>n.name),
+            cpf: cpf.map((c)=>c.cpf),
         };
 
         setReserva({ ...reserva, assentos: assentos });
@@ -52,6 +53,7 @@ export default function Room({ setReserva }) {
     function handleSeat(seat) {
         //Se o assento estiver indisponível não faz nada
         if (seat.isAvailable === false) {
+            alert("Esse assento não está disponível")
             return;
         }
         //Toggle - "Liga e desliga" a seleção
@@ -65,6 +67,7 @@ export default function Room({ setReserva }) {
         }
         //Adicionamos o assento a lista de assentos selecionados
         setSelectedSeats([...selectedSeats, seat]);
+        
         return;
     }
 
@@ -98,6 +101,7 @@ export default function Room({ setReserva }) {
 
             <Formulario>
                 <form onSubmit={enviar}>
+                    
                     <Nome>
                         <label for="nome">Nome do comprador:</label>
                         <input id="nome" data-test="client-name" type="text" placeholder="Digite seu nome..."
