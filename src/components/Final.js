@@ -31,7 +31,6 @@ export default function Final({ reserva }) {
                         const [seat] = reserva.assentos.seats.filter(
                             (s) => s.id === seatId
                         );
-                        console.log(seat);
                         return <p key={seat}>assento {seat.name}</p>;
                     })}
                 </Informacao>

@@ -22,7 +22,6 @@ export default function Sessions() {
     if (sessao === undefined) {
         return <img src={gif} alt='loading' />;
     }
-    console.log(sessao.days)
     return (
         <Horarios>
             <Voltar/>
@@ -54,8 +53,21 @@ export default function Sessions() {
     )
 }
 const Horarios = styled.div`
+    gap: 10px;
     width: 375px;
     height: 100%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    letter-spacing: 0.02em;
+
+    color: #293845;
     p{
         width: 374px;
         height: 110px;
@@ -76,6 +88,29 @@ const Horarios = styled.div`
     }
 `
 const Opcoes = styled.div`
+    display: flex   ;
+    gap: 10px;
+    button{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.02em;
+
+        color: #FFFFFF;
+        width: 83px;
+        height: 43px;
+        left: 23px;
+        top: 227px;
+
+        background: #E8833A;
+        border-radius: 3px;
+}
 `
 const Foto = styled.div`
     position: absolute;

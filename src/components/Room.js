@@ -41,7 +41,6 @@ export default function Room({ setReserva }) {
         };
 
         setReserva({ ...reserva, assentos: assentos });
-        console.log(reserva)
         axios
             .post(
                 "https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",
