@@ -8,22 +8,17 @@ import { useState } from "react"
 
 
 export default function Cinemain() {
-    const navigate = useNavigate()
+    
     const [reserva, setReserva] = useState(undefined);
     
-    function volta(){
-        navigate(-1)
-    }
     return (
         <Conteiner>
             <BrowserRouter>
-            <Voltar onClick={volta}>Voltar</Voltar>
                 <Link to={'/'}>
                     <Logo>
                         CINEFLEX
                     </Logo>
                 </Link>
-                
                 <Routes>
                     <Route path="/" element={<Catalogo />} />
                     <Route path="/sessoes/:idFilme" element={<Sessions />} />
@@ -52,10 +47,4 @@ const Logo = styled.div`
     text-align: center;
     justify-content: center;
     color: #E8833A;
-`
-const Voltar = styled.button`
-    position: absolute;
-    top: 70px;
-    left: 20px;
-    width: 100px;
 `
