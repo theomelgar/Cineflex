@@ -29,16 +29,16 @@ export default function Final({ reserva }) {
                             (s) => s.id === seatId
                         );
 
-                        return <p key={seat}>assento {seat.name}</p>;
+                        return <p key={seat}>Assento {seat.name}</p>;
                     })}
                 </Informacao>
                 <Informacao data-test="client-info">
                     Comprador
                     <p>
-                        {reserva.name}
+                        Nome: {reserva.name}
                     </p>
                     <p>
-                        {reserva.cpf}
+                        CPF: {reserva.cpf}
                     </p>
                 </Informacao>
             </Informacoes>

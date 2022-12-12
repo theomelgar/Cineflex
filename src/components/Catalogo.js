@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import gif from "../assets/Loading_icon.gif"
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';

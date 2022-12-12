@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import gif from "../assets/Loading_icon.gif"
 import styled from 'styled-components';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Footer from "./Footer"
 import Legenda from './Legenda';
 import "../styles/style.css"
@@ -17,7 +16,6 @@ export default function Room({ setReserva }) {
     const [name, setName] = useState([]);
     const [cpf, setCpf] = useState([]);
     const navigate = useNavigate();
-    
 
     useEffect(() => {
         const requisicao = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSessao}/seats`);
@@ -28,14 +26,14 @@ export default function Room({ setReserva }) {
         requisicao.catch((err) => alert(err.response.data.message));
     }, []);
     if (assentos === undefined) {
-        return <Loading/>;
+        return <Loading />;
     }
     function enviar(event) {
 
         event.preventDefault(); // impede o redirecionamento
 
         const reserva = {
-            ids: selectedSeats.map((s)=> s.id),
+            ids: selectedSeats.map((s) => s.id),
             name: name,
             cpf: cpf,
         };
@@ -66,13 +64,11 @@ export default function Room({ setReserva }) {
         }
         //Adicionamos o assento a lista de assentos selecionados
         setSelectedSeats([...selectedSeats, seat]);
-        
         return;
     }
-
     return (
         <Seats>
-            <Voltar/>
+            <Voltar />
             <Texto>Selecione o(s) assento(s)</Texto>
             <ul>
                 {assentos.seats.map(seat =>
@@ -95,12 +91,12 @@ export default function Room({ setReserva }) {
                         )}
                     </Seat>
                 )}
+                <span>TELA</span>
             </ul>
             <Legenda />
 
             <Formulario>
                 <form onSubmit={enviar}>
-                    
                     <Nome>
                         <label for="nome">Nome do comprador:</label>
                         <input id="nome" data-test="client-name" type="text" placeholder="Digite seu nome..."
@@ -111,7 +107,6 @@ export default function Room({ setReserva }) {
                         <input id="cpf" type="text" data-test="client-cpf" placeholder="Digite seu CPF..."
                             value={cpf} onChange={e => setCpf(e.target.value)} />
                     </Cpf>
-
                     <Reservar data-test="book-seat-btn" type='submit'>
                         Reservar assento(s)
                     </Reservar>
@@ -147,6 +142,11 @@ const Seats = styled.div`
         align-items: center;
         background-color: aliceblue;
         gap: 10px;
+    }
+    span{
+        width: 150px;
+        background-color: aquamarine;
+        text-align: center;
     }
 `
 const Texto = styled.div`

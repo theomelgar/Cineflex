@@ -3,7 +3,7 @@ import Sessions from "./Sessions"
 import Room from "./Room"
 import Final from "./Final"
 import styled from "styled-components"
-import { BrowserRouter, Link, Route, Routes, useNavigate } from "react-router-dom"
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
 import { useState } from "react"
 
 
