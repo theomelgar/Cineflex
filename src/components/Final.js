@@ -11,7 +11,7 @@ export default function Final({ reserva }) {
       }
     return (
         <Sucesso>
-            <Voltar/>
+            {/* <Voltar/> */}
             <Titulo>
                 Pedido feito com sucesso!
             </Titulo>
