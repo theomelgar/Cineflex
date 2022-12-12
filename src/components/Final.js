@@ -1,6 +1,8 @@
 import styled from "styled-components"
+import { useParams } from "react-router-dom"
 
 export default function Final() {
+    const {assentos.movie.title} = useParams()
     return (
         <Sucesso>
             <Titulo>
