@@ -10,11 +10,13 @@ const Footer = styled.div`
     font-size: 26px;
     line-height: 30px;
     display: flex;
+    justify-content: center;
     align-items: center;
     color: #293845;
     height: 117px;
     background: #DFE6ED;
     border: 1px solid #9EADBA;
+    gap: 10px;
 `
 
 export default Footer

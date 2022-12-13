@@ -7,6 +7,7 @@ export default function Final({ reserva }) {
     function home() {
         navigate("/");
       }
+ 
     return (
         <Sucesso>
             <Titulo>
@@ -84,7 +85,6 @@ const Informacao = styled.div`
     height: 110px;
     font-family: 'Roboto';
     font-style: normal;
-    font-family: 'Roboto';
     font-weight: 700;
     font-size: 24px;
     line-height: 28px;
@@ -100,7 +100,7 @@ const Informacao = styled.div`
         line-height: 26px;
     }
 `
-const Home = styled.button`
+const Home = styled.div`
     margin-top: 70px;
     font-family: 'Roboto';
     font-style: normal;
@@ -117,4 +117,7 @@ const Home = styled.button`
     height: 42px;
     background: #E8833A;
     border-radius: 3px;
+    &:hover{
+        cursor: pointer;
+    }
 `
