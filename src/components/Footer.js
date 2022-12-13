@@ -16,7 +16,7 @@ const Footer = styled.div`
     height: 117px;
     background: #DFE6ED;
     border: 1px solid #9EADBA;
-    gap: 10px;
+    gap: 20px;
 `
 
 export default Footer

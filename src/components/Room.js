@@ -278,6 +278,7 @@ const Titulo = styled.div`
     font-size: 26px;
     line-height: 30px;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     color: #293845;
 `

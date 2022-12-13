@@ -117,11 +117,8 @@ const Opcoes = styled.div`
 }
 `
 const Foto = styled.div`
-    position: absolute;
     width: 64px;
     height: 89px;
-    left: 10px;
-    bottom: 14px;
     background: #FFFFFF;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 2px;
@@ -135,17 +132,15 @@ const Foto = styled.div`
     }
 `
 const Titulo = styled.div`
-    position: absolute;
     width: 169px;
     height: 40px;
-    left: 88px;
-    bottom: 39px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 26px;
     line-height: 30px;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     color: #293845;
 `
