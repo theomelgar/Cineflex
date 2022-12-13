@@ -15,6 +15,7 @@ export default function Room({ setReserva }) {
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [name, setName] = useState([]);
     const [cpf, setCpf] = useState([]);
+    const [valor, setValor] = useState(0)
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -38,7 +39,7 @@ export default function Room({ setReserva }) {
             cpf: cpf,
         };
 
-        setReserva({ ...reserva, assentos: assentos });
+        setReserva({ ...reserva, assentos: assentos, valor:valor });
         axios
             .post(
                 "https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many",
@@ -60,10 +61,12 @@ export default function Room({ setReserva }) {
         if (!seat.selected) {
             const filteredSeats = selectedSeats.filter((s) => !(s.name === seat.name));
             setSelectedSeats([...filteredSeats]);
+            setValor(valor-10)
             return;
         }
         //Adicionamos o assento a lista de assentos selecionados
         setSelectedSeats([...selectedSeats, seat]);
+        setValor(valor+10)
         return;
     }
     return (
@@ -97,21 +100,23 @@ export default function Room({ setReserva }) {
 
             <Formulario>
                 <form onSubmit={enviar}>
+                    <p>{`R$ ${valor},00`}</p>
                     <Nome>
                         <label for="nome">Nome do comprador:</label>
                         <input id="nome" data-test="client-name" type="text" placeholder="Digite seu nome..."
-                            value={name} onChange={e => setName(e.target.value)} />
+                            value={name} required onChange={e => setName(e.target.value)} />
                     </Nome>
                     <Cpf>
                         <label for="cpf">CPF do comprador:</label>
                         <input id="cpf" type="text" data-test="client-cpf" placeholder="Digite seu CPF..."
-                            value={cpf} onChange={e => setCpf(e.target.value)} />
+                            value={cpf} required onChange={e => setCpf(e.target.value
+                                .replace(/\D/g, "")
+                                .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")
+                                .substring(0, 14))} />
                     </Cpf>
                     <Reservar data-test="book-seat-btn" type='submit'>
                         Reservar assento(s)
                     </Reservar>
-
-
                 </form>
             </Formulario>
             <Footer data-test="footer">
@@ -119,7 +124,7 @@ export default function Room({ setReserva }) {
                     <img src={assentos.movie.posterURL} />
                 </Foto>
                 <Titulo>
-                    {assentos.movie.title} - {assentos.day.weekday} - {assentos.name}
+                    {assentos.movie.title} - {assentos.day.weekday} - {assentos.name} - {`R$ ${valor},00`}
                 </Titulo>
             </Footer>
         </Seats>
@@ -165,14 +170,6 @@ const Texto = styled.div`
     color: #293845;
 `
 const Seat = styled.div`
-    box-sizing: border-box;
-    width: 26px;
-    height: 26px;
-    border: 1px solid #808F9D;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -253,6 +250,7 @@ const Reservar = styled.button`
     letter-spacing: 0.04em;
     color: #FFFFFF;
     margin: 0 auto;
+    cursor: pointer;
 `
 const Foto = styled.div`
     width: 64px;

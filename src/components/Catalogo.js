@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
+
 export default function Catalogo() {
 
     const [filmes, setFilmes] = useState(undefined);
@@ -65,7 +66,6 @@ const Catalogue = styled.div`
         align-items: center;
         width: 145px;
         height: 209px;
-        background: #FFFFFF;
         box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
         border-radius: 3px;
     }

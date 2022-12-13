@@ -12,7 +12,7 @@ export default function Voltar() {
 const Back = styled.div`
     position: absolute;
     top: 12px;
-    left: 5px;
+    left: 15px;
     width: 70px;
     font-size: 40px;
 `

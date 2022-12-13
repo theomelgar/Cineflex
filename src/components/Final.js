@@ -32,6 +32,9 @@ export default function Final({ reserva }) {
 
                         return <p key={seat}>Assento {seat.name}</p>;
                     })}
+                    <p>
+                        Valor total: R${reserva.valor},00
+                    </p>
                 </Informacao>
                 <Informacao data-test="client-info">
                     Comprador
