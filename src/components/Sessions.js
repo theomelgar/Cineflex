@@ -24,7 +24,13 @@ export default function Sessions() {
     }
     return (
         <Horarios>
-            <Voltar/>
+            <Voltar />
+            <Info>
+                <img src={sessao.posterURL} />
+                <Descricao>
+                    <ul>{sessao.title}<li>{sessao.overview}</li></ul>
+                    </Descricao>
+            </Info>
             <p>Selecione o horário</p>
             <ul>
                 {sessao.days.map(s =>
@@ -41,7 +47,7 @@ export default function Sessions() {
             </ul>
             <Footer data-test="footer">
                 <Foto>
-                    <img src={sessao.posterURL}/>
+                    <img src={sessao.posterURL} />
                 </Foto>
                 <Titulo>
                     {sessao.title}
@@ -62,7 +68,7 @@ const Horarios = styled.div`
     display: flex; 
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     letter-spacing: 0.02em;
     color: #293845;
     margin-bottom:150px;
@@ -87,6 +93,47 @@ const Horarios = styled.div`
     }
     li{
         margin-bottom: 30px ;
+    }
+`
+const Info = styled.div`
+    width: 40%;
+    height: 400px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    background:#E8833A;
+    margin: 0 auto;
+    img{
+        width: 200px;
+    }
+    @media (max-width:1000px){
+        width: 100%;
+    } 
+`
+const Descricao = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    ul{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 48px;
+        letter-spacing: 0.02em;
+        color: #293845;
+    }
+    li{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 18px;
+        letter-spacing: 0.02em;
+        color: #293845;
     }
 `
 const Opcoes = styled.div`
