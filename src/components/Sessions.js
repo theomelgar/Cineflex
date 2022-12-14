@@ -96,16 +96,19 @@ const Horarios = styled.div`
     }
 `
 const Info = styled.div`
-    width: 40%;
-    height: 400px;
+    width: 1000px;
+    height: 300px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: nowrap;
     background:#E8833A;
-    margin: 0 auto;
+    margin: 20px auto;
     img{
+        box-sizing: border-box;
+        border: 8px solid brown;
         width: 200px;
+        margin-right: 5px;
     }
     @media (max-width:1000px){
         width: 100%;
@@ -124,7 +127,7 @@ const Descricao = styled.div`
         font-size: 25px;
         line-height: 25px;
         letter-spacing: 0.02em;
-        color: #293845;
+        color: black;
     }
     li{
         font-family: 'Roboto';
@@ -133,7 +136,7 @@ const Descricao = styled.div`
         font-size: 20px;
         line-height: 20px;
         letter-spacing: 0.02em;
-        color: #293845;
+        color: black;
         margin-top: 15px;
     }
 `
