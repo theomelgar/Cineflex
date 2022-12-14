@@ -121,6 +121,9 @@ const Home = styled.div`
     background: #E8833A;
     border-radius: 3px;
     &:hover{
+        opacity: 60%;
+        transform: scale(110%);
+        transition: all 0.2s linear;
         cursor: pointer;
     }
 `

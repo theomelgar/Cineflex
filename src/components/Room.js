@@ -250,7 +250,14 @@ const Reservar = styled.button`
     letter-spacing: 0.04em;
     color: #FFFFFF;
     margin: 0 auto;
-    cursor: pointer;
+    &:hover{
+        opacity: 60%;
+        transform: scale(110%);
+        transition: all 0.2s linear;
+        cursor: pointer;
+    }
+    
+    
 `
 const Foto = styled.div`
     width: 64px;

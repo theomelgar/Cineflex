@@ -174,6 +174,11 @@ const Opcoes = styled.div`
         top: 227px;
         background: #E8833A;
         border-radius: 3px;
+        &:hover{
+            opacity: 60%;
+            transform: scale(110%);
+            transition: all 0.2s linear;
+        }
 }
 `
 const Foto = styled.div`
