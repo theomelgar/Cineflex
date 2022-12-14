@@ -100,7 +100,7 @@ export default function Room({ setReserva }) {
 
             <Formulario>
                 <form onSubmit={enviar}>
-                    <p>{`R$ ${valor},00`}</p>
+                    <p>{`Total a pagar: R$ ${valor},00`}</p>
                     <Nome>
                         <label for="nome">Nome do comprador:</label>
                         <input id="nome" data-test="client-name" type="text" placeholder="Digite seu nome..."
