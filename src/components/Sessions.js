@@ -128,6 +128,10 @@ const Descricao = styled.div`
         line-height: 25px;
         letter-spacing: 0.02em;
         color: black;
+        @media (max-width: 600px){
+            font-size: 20px;
+            line-height: 20px;
+        }
     }
     li{
         font-family: 'Roboto';
@@ -138,6 +142,11 @@ const Descricao = styled.div`
         letter-spacing: 0.02em;
         color: black;
         margin-top: 15px;
+        @media (max-width: 600px){
+            font-size: 14px;
+            line-height: 14px;
+            margin-top: 4px;
+        }
     }
 `
 const Opcoes = styled.div`
