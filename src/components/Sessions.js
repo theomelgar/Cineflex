@@ -122,7 +122,7 @@ const Descricao = styled.div`
         font-style: normal;
         font-weight: 700;
         font-size: 25px;
-        line-height: 18px;
+        line-height: 25px;
         letter-spacing: 0.02em;
         color: #293845;
     }
@@ -131,7 +131,7 @@ const Descricao = styled.div`
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
-        line-height: 18px;
+        line-height: 20px;
         letter-spacing: 0.02em;
         color: #293845;
         margin-top: 15px;
