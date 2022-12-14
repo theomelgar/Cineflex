@@ -122,7 +122,7 @@ const Descricao = styled.div`
         font-style: normal;
         font-weight: 700;
         font-size: 25px;
-        line-height: 48px;
+        line-height: 18px;
         letter-spacing: 0.02em;
         color: #293845;
     }
@@ -134,6 +134,7 @@ const Descricao = styled.div`
         line-height: 18px;
         letter-spacing: 0.02em;
         color: #293845;
+        margin-top: 15px;
     }
 `
 const Opcoes = styled.div`
